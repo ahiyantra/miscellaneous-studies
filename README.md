@@ -1,2 +1,2 @@
-# miscellaneous-coursework
-miscellaneous coursework
+# miscellaneous-studies 
+constantly learning skills
