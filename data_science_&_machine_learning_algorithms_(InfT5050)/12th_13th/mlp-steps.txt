@@ -1,0 +1,54 @@
+https://colab.research.google.com/drive/1VaZXp76nYXuxl3y5CM6oPgHTGecFJfVb?authuser=1#scrollTo=COCHc0GFxITd
+
+...
+
+Let's play with our MLP:
+
+Uncomment dropout layers and observe how the performance changed
+Play with the number of layers/neurons
+Play with the number of epochs and batch size. Comment on the performance and training curves
+After steps 1-3, figure out the optimal set of hyperparameters and the corresponding performance
+How does your performance change if you don't normalise pixel values?
+
+...
+
+Changes:
+
+Ran notebook once.
+Uncommented dropout layers.
+Added a new hidden layer with 96 neurons.
+Increased batch size & epochs by half.
+Commented out pixel normalization.
+
+...
+
+# Student Comments.
+
+My results.
+
+* After step 00 (Ran notebook once.) -
+Test Accuracy: 97.83%
+
+* After step 01 (Uncommented dropout layers.) - 
+Test Accuracy: 97.59
+
+* After step 02 (Added a new hidden layer with 96 neurons.) -
+Test Accuracy: 97.71%
+
+* After step 03 (Increased batch size & epochs by half.) -
+Test Accuracy: 97.96%
+
+* After step 05 (Commented out pixel normalization.) -
+Test Accuracy: 95.73%
+
+My conclusions.
+
+* Adding dropout layers negatively affects performance slightly in this case.
+
+* Adding an extra hidden layer partially makes up for the loss caused by the previous change in this case.
+
+* Increasing batch size & epochs causes an improvement over the original code on top of making up for the losses caused by the previous change.
+
+* It seems that the performance improved during the second & third steps but dropped during the first & fifth steps (the fourth step was analysis).
+
+* It seems that we're experiencing over-fitting after the fifth step because the validation accuracy went up but the test accuracy went down (the test accuracy is more important than the validation accuracy).

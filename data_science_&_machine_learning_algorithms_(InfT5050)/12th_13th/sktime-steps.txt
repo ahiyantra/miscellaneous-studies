@@ -1,0 +1,67 @@
+https://colab.research.google.com/drive/1ZG8p9ZMx4wMa9vPArO5wBDcn3fvua3Du?authuser=1
+
+...
+
+Steps:
+
+Run original code.
+Change n_neighbors value.
+Changed window_length value.
+Use arima (maybe with different order values).
+Use auto arima.
+
+...
+
+# Student Comments.
+
+My results.
+
+* After step 00 (ran notebook once) -
+[pre-regressor]
+MAE:  60.083333333333336
+MSE:  5418.75
+[post-regressor]
+MAE:  63.861111111111114
+MSE:  5913.666666666667
+
+* After step 01 (increased n_neightbours to 04 from 02) -
+[pre-regressor]
+MAE:  60.083333333333336
+MSE:  5418.75
+[post-regressor]
+MAE:  63.77777777777778
+MSE:  6860.447916666667
+
+* After step 02 (increased window_length to 24 from 12) -
+[pre-regressor]
+MAE:  60.083333333333336
+MSE:  5418.75
+[post-regressor]
+MAE:  60.791666666666664
+MSE:  5666.479166666667
+
+* After step 03 (used arima with default values) -
+[pre-regressor]
+MAE:  17.81885403192575
+MSE:  448.92207902744485
+[post-regressor]
+MAE:  63.861111111111114
+MSE:  5913.666666666667
+
+* After step 04 (used auto arima with default values) -
+[pre-regressor]
+MAE:  18.3874281361726
+MSE:  560.6995942871886
+[post-regressor]
+MAE:  63.861111111111114
+MSE:  5913.666666666667
+
+My conclusions.
+
+* First step improved the post-regressor MAE by a bit but worsened the post-regressor MSE by a bit.
+
+* Second step improved both the post-regressor MAE & MSE by a bit. No change for pre-regressor values.
+
+* Third step improved both the pre-regressor MAE & MSE significantly. No change for post-regressor values.
+
+* Fourth step also improved both the pre-regressor MAE & MSE significantly. No change for post-regressor values.
