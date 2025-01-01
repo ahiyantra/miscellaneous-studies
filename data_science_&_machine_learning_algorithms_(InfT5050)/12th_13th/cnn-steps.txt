@@ -1,0 +1,25 @@
+https://colab.research.google.com/drive/1VaZXp76nYXuxl3y5CM6oPgHTGecFJfVb?authuser=1#scrollTo=COCHc0GFxITd
+
+...
+
+Play with the model hyperparameters
+
+Number of filters in the convolutional layers
+Sizes of the filters
+Size of MaxPooling window (what would be if you used AveragePooling?)
+Additional convolutions
+Additional Densy layers
+Dropout layer and its value
+
+...
+
+Notes:
+
+It seems that filters are the same as kernels.
+Each fiter has its own kernel.
+
+...
+
+Changes:
+
+...
