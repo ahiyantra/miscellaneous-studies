@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="AutomationExerciseSuite">
+    <!-- Test for Firefox -->
+    <test name="HomePageTests-Firefox">
+        <parameter name="browser" value="firefox"/> <!-- Set to "firefox" -->
+        <classes>
+            <class name="tests.HomeTest"/>
+        </classes>
+    </test>
+
+    <!-- Test for Opera -->
+    <test name="HomePageTests-Opera">
+        <parameter name="browser" value="opera"/> <!-- Set to "opera" -->
+        <classes>
+            <class name="tests.HomeTest"/>
+        </classes>
+    </test>
+</suite>
