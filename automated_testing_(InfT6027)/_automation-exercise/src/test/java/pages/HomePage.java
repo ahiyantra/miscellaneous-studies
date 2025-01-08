@@ -3,18 +3,8 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
-    WebDriver driver;
-
-    // Constructor
-    public HomePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
-
-    // Page Elements
+public class HomePage extends BasePage {
     @FindBy(xpath = "//a[contains(text(),'Signup / Login')]")
     WebElement signupLoginLink;
 
@@ -24,16 +14,22 @@ public class HomePage {
     @FindBy(xpath = "//a[contains(text(),'Test Cases')]")
     WebElement testCasesLink;
 
-    // Page Actions
+    public HomePage(WebDriver driver) {
+        super(driver);
+    }
+
     public void clickSignupLogin() {
-        signupLoginLink.click();
+        handleConsentOverlay();
+        waitAndClick(signupLoginLink);
     }
 
     public void clickContactUs() {
-        contactUsLink.click();
+        handleConsentOverlay();
+        waitAndClick(contactUsLink);
     }
 
     public void clickTestCases() {
-        testCasesLink.click();
+        handleConsentOverlay();
+        waitAndClick(testCasesLink);
     }
 }
