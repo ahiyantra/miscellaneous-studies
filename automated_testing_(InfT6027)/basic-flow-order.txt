@@ -1,0 +1,93 @@
+-----
+
+Basic flow order for Login, Products & Cart pages (the tests are to be done in this speific order without skipping anything but the overall project structure can vary a bit).
+
+-----
+
+Open the firefox/brave/opera/edge/chrome browser. 
+
+-----
+
+Objective: Test login functionality and verify if the user is logged in with the chosen credentials or not.
+
+Navigate to the Login Page.
+
+Go to https://www.automationexercise.com/login.
+
+Handle Consent Overlay (if displayed):
+
+If a consent overlay appears with the message "This site asks for consent to use your data," click the Consent button to dismiss it.
+
+Ensure that you're not logged in. Logout first if logged in.
+
+Enter Login Credentials:
+
+Locate the email field and enter: [information redacted]
+
+Locate the password field and enter: [information redacted]
+
+Click the Login button.
+
+Verify Login:
+
+Check if the text "Logged in as TestUser" appears on the top bar.
+
+Verify that the Logout button is visible.
+
+-----
+
+Objective: Search for a product, validate the search results and add the product to the virtual shopping cart.
+
+Navigate to the Products Page.
+
+Go to https://www.automationexercise.com/products.
+
+Handle Consent Overlay (if displayed):
+
+If a consent overlay appears with the message "This site asks for consent to use your data," click the Consent button to dismiss it.
+
+Ensure that you're not logged out. Login first if logged out.
+
+Search for a Product:
+
+Locate the search bar (with placeholder Search Product).
+
+Enter the chosen test product name, "Men Tshirt", in the search bar.
+
+Click on the Search button next to the search bar.
+
+Validate Search Results:
+
+Verify that the search results displays the product matching the chosen test product name, "Men Tshirt".
+
+Click on the "View Product" button for more details.
+
+Select the product's quantity as a number, like "2".
+
+Click on the "Add to cart" button for adding the chosen test product to the virtual shopping cart.
+
+Verify that a popup appears saying "Added!", which has a link to the virtual shopping cart page (https://www.automationexercise.com/view_cart), with a button saying "Continue Shopping".
+
+-----
+
+Objective: Validate the cart functionality using the product added in the previous steps.
+
+Navigate to the Cart Page.
+
+Go to https://www.automationexercise.com/view_cart.
+
+Handle Consent Overlay (if displayed):
+
+If a consent overlay appears with the message "This site asks for consent to use your data," click the Consent button to dismiss it.
+
+Ensure that you're not logged out. Login first if logged out.
+
+Verify Cart Items:
+
+Check the cart table for the presence of the chosne test product.
+
+Validate that the item name (Men Tshirt), quantity (1), and price (Rs. 400) are correct.
+
+Click on the "Proceed to Checkout" button, which leads to the virtual checkout page (https://www.automationexercise.com/checkout), that has a button saying "Place Order".
+
+-----

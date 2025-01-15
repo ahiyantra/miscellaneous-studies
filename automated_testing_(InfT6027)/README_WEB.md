@@ -1,3 +1,3 @@
 # main issues:
 
-the website hits unsuspecting users with full page advertisements;
+the website can hit unsuspecting users with full page advertisements;

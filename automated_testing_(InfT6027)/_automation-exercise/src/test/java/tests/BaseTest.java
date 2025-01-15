@@ -3,43 +3,73 @@ package tests;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
+//import org.openqa.selenium.opera.OperaDriver;
+//import org.openqa.selenium.chrome.ChromeDriver;
+//import org.openqa.selenium.chrome.ChromeOptions;
+//import org.openqa.selenium.opera.OperaOptions;
+//import org.openqa.selenium.edge.EdgeDriver;
+//import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
-import pages.BasePage;
 
-import java.time.Duration;
+import java.io.File;
 
 public class BaseTest {
     protected WebDriver driver;
 
-    @Parameters("browser")
     @BeforeMethod
+    @Parameters("browser")
     public void setUp(String browser) {
-        if (browser.equalsIgnoreCase("firefox")) {
-            WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
-        } else if (browser.equalsIgnoreCase("opera")) {
-            WebDriverManager.chromedriver().setup();
-            ChromeOptions options = new ChromeOptions();
-            // Set Opera binary location - update this path to match your Opera installation
-            options.setBinary("C:\\Users\\praam\\AppData\\Local\\Programs\\Opera\\opera.exe");
-            // Add additional Opera-specific arguments if needed
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
+        switch (browser.toLowerCase()) {
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
 
-            driver = new ChromeDriver(options);
+                // Firefox-specific options
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+
+                // Considered using a headless setup because the website had too many unexpected ad popups interrupting interactions
+                //firefoxOptions.addArguments("--headless");
+
+                // Add uBlock Origin extension for ad blocking
+                File firefoxExtension = new File("E:\\_LBTU-LLU_\\03rd-semester\\InfT6027 _ automated testing (automatizētā testēšana)\\03rd-assignment-work\\used_softwares\\firefox-ublock\\uBlock0_1.62.0.firefox.xpi");
+                firefoxOptions.addPreference("xpinstall.signatures.required", false);
+                firefoxOptions.addPreference("extensions.install.requireSecureOrigin", false);
+                firefoxOptions.addPreference("extensions.autoDisableScopes", 0);
+                firefoxOptions.addPreference("extensions.enabledScopes", 15);
+                firefoxOptions.addArguments("--install-extension=" + firefoxExtension.getAbsolutePath());
+
+                // Disable telemetry and update checks
+                firefoxOptions.addPreference("browser.tabs.warnOnClose", false);
+                firefoxOptions.addPreference("datareporting.policy.dataSubmissionEnabled", false);
+                firefoxOptions.addPreference("app.update.auto", false);
+
+                // Ignore TLS certificate errors
+                firefoxOptions.setAcceptInsecureCerts(true);
+
+                driver = new FirefoxDriver(firefoxOptions);
+                break;
+            /*
+            case "internetexplorer":
+                WebDriverManager.iedriver().setup(); // Automatically install correct IE driver
+                InternetExplorerOptions ieOptions = new InternetExplorerOptions();
+                ieOptions.introduceFlakinessByIgnoringSecurityDomains(); // Required for IE
+                ieOptions.ignoreZoomSettings(); // Ignore zoom level settings
+                ieOptions.setCapability("nativeEvents", false); // Disable native events to avoid issues
+                ieOptions.setCapability("ignoreProtectedModeSettings", true); // Required for IE
+                ieOptions.setCapability("requireWindowFocus", true); // To ensure stable automation
+                driver = new InternetExplorerDriver(ieOptions);
+                break;
+            */
+            default:
+                throw new IllegalArgumentException("Unsupported browser: " + browser);
         }
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
-        driver.get("https://automationexercise.com");
-
-        // Ensure that the page is fully loaded before proceeding
-        BasePage basePage = new BasePage(driver);
-        basePage.ensurePageLoaded();
+        driver.get("https://www.automationexercise.com");
     }
 
     @AfterMethod
