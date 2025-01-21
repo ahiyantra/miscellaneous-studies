@@ -30,4 +30,14 @@
 
 #### SUBDOMAINS : Arrays
 
-...
+01. "Arrays - DS" ~ Easy,Problem Solving (Basic), Max Score: 10, Success Rate: 92.97%
+
+02. "2D Array - DS" ~ Easy, Problem Solving (Basic), Max Score: 15, Success Rate: 93.20%
+
+03. "Dynamic Array" ~ Easy, Problem Solving (Basic), Max Score: 15, Success Rate: 87.16%
+
+04. "Left Rotation" ~ Easy, Problem Solving (Basic), Max Score: 20, Success Rate: 91.70%
+
+05. "Sparse Arrays" ~ Medium, Problem Solving (Basic), Max Score: 25, Success Rate: 97.31%
+
+06. "Array Manipulation" ~ Hard, Problem Solving (Intermediate), Max Score: 60, Success Rate: 62.51%
